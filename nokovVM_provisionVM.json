@@ -98,7 +98,7 @@
   ],
   "variables": {
     "contentDir": "contentForVM",
-    "password": "crazyflie",
+    "password": "nokovflie",
     "user": "nokov",
     "vm-name": "NokovVM"
   }

@@ -67,7 +67,7 @@
     }
   ],
   "variables": {
-    "password": "crazyflie",
+    "password": "nokovflie",
     "user": "nokov",
     "vm-name": "NokovVM"
   }

@@ -36,7 +36,7 @@ Using the virtual machine
 After importing just run the machine. It logs in automatically but use the following credentials if needed:
 ```
 User: nokov
-Pass: crazyflie
+Pass: nokovflie
 ```
 
 In the virtual machine double click the **“update all projects”** icon on the desktop. This pulls down the latest source code from GitHub for all projects.

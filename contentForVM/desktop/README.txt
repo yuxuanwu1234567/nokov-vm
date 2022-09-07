@@ -12,7 +12,7 @@ The virtual machine
 -------------------
 
  * The username is: nokov
- * The password is: crazyflie
+ * The password is: nokovflie
  * The virtual machine has 30GB drive and 2 GB of RAM
  * The virtual machine is using Xubuntu 20.04 LTS Core (minimal) install.
 
