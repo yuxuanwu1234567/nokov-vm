@@ -1,4 +1,9 @@
 #!/bin/bash -x
+
+# Replace apt source
+sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+
 # Add KiCad stable PPA
 sudo add-apt-repository --yes ppa:kicad/kicad-5.1-releases
 
