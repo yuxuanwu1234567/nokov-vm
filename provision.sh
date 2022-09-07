@@ -47,6 +47,9 @@ git clone https://github.com/bitcraze/crazyflie2-stm-bootloader.git
 git clone https://github.com/bitcraze/crazyflie2-nrf-bootloader.git
 git clone https://github.com/bitcraze/crazyflie2-nrf-firmware.git
 git clone https://github.com/bitcraze/lps-node-firmware.git --recursive
+git clone https://github.com/USC-ACTLab/crazyswarm.git --recursive
+cd crazyswarm/ros_ws/src/crazyswarm/externalDependencies/
+git switch master
 cd ~/
 chown bitcraze:bitcraze -R projects
 ln -s ~/projects ~/Desktop/projects
