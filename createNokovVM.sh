@@ -1,11 +1,11 @@
 #!/bin/bash
 
-PACKER_FILE1=bitcrazeVM_createVM.json
-PACKER_FILE2=bitcrazeVM_provisionVM.json
+PACKER_FILE1=nokovVM_createVM.json
+PACKER_FILE2=nokovVM_provisionVM.json
 
 CONTENT_DIR="contentForVM/"
 
-OVA_FILE=BitcrazeVM.ova
+OVA_FILE=NokovVM.ova
 
 #Run packer
 echo "Running packer..."

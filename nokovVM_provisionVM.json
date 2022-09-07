@@ -99,7 +99,7 @@
   "variables": {
     "contentDir": "contentForVM",
     "password": "crazyflie",
-    "user": "bitcraze",
-    "vm-name": "BitcrazeVM"
+    "user": "nokov",
+    "vm-name": "NokovVM"
   }
 }

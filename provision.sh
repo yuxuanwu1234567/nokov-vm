@@ -22,16 +22,16 @@ umount /tmp/isomount
 rm -rf isomount ~/$VBOX_ISO
 
 # Adding udev rules for Crazyradio and Crazyflie
-usermod -a -G plugdev bitcraze
+usermod -a -G plugdev nokov
 sh -c 'echo SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"1915\", ATTRS{idProduct}==\"7777\", MODE=\"0664\", GROUP=\"plugdev\" > /etc/udev/rules.d/99-crazyradio.rules'
 sh -c 'echo SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"1915\", ATTRS{idProduct}==\"0101\", MODE=\"0664\", GROUP=\"plugdev\" >> /etc/udev/rules.d/99-crazyradio.rules'
 sh -c 'echo SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"0483\", ATTRS{idProduct}==\"5740\", MODE=\"0664\", GROUP=\"plugdev\" >> /etc/udev/rules.d/99-crazyflie.rules'
 
 # Add user to dialout group, to give access to serial ports
-usermod -a -G dialout bitcraze
+usermod -a -G dialout nokov
 
 # Add user to docker group
-usermod -a -G docker bitcraze
+usermod -a -G docker nokov
 
 # Clone the git repos
 mkdir ~/projects
@@ -51,7 +51,7 @@ git clone https://github.com/USC-ACTLab/crazyswarm.git --recursive
 cd crazyswarm/ros_ws/src/crazyswarm/externalDependencies/
 git switch master
 cd ~/
-chown bitcraze:bitcraze -R projects
+chown nokov:nokov -R projects
 ln -s ~/projects ~/Desktop/projects
 
 # Install VSCode
@@ -65,11 +65,11 @@ apt update
 apt install code # or code-insiders
 
 # Install VSCode extensions
-sudo -H -u bitcraze code --install-exteman nsion ms-python.python
-sudo -H -u bitcraze code --install-extension ms-python.vscode-pylance
-sudo -H -u bitcraze code --install-extension ms-vscode.cpptools
-sudo -H -u bitcraze code --install-extension seanwu.vscode-qt-for-python
-sudo -H -u bitcraze code --install-extension marus25.cortex-debug
+sudo -H -u nokov code --install-exteman nsion ms-python.python
+sudo -H -u nokov code --install-extension ms-python.vscode-pylance
+sudo -H -u nokov code --install-extension ms-vscode.cpptools
+sudo -H -u nokov code --install-extension seanwu.vscode-qt-for-python
+sudo -H -u nokov code --install-extension marus25.cortex-debug
 
 # Setup update_all_projects script
 chmod +x ~/update_all_projects.sh
@@ -84,11 +84,11 @@ cp /usr/share/xfce4/backdrops/xubuntu-wallpaper.png /usr/share/xfce4/backdrops/x
 cp ~/Pictures/vm_background.png /usr/share/xfce4/backdrops/xubuntu-wallpaper.png
 
 # Add user to vboxsf group so shares with host can be used
-usermod -a -G vboxsf bitcraze
+usermod -a -G vboxsf nokov
 
 # Set up crazyflie-clients-python to use crazyflie-lib-python from source
-sudo -H -u bitcraze bash -c 'pip3 install --user -e ~/projects/crazyflie-lib-python'
-sudo -H -u bitcraze bash -c 'pip3 install --user -e ~/projects/crazyflie-clients-python'
+sudo -H -u nokov bash -c 'pip3 install --user -e ~/projects/crazyflie-lib-python'
+sudo -H -u nokov bash -c 'pip3 install --user -e ~/projects/crazyflie-clients-python'
 
 # Disable screen saver (workaround)
 mv /etc/xdg/autostart/light-locker.desktop /etc/xdg/autostart/light-locker.desktop.old

@@ -1,9 +1,9 @@
-# Bitcraze Virtual Machine
+# Nokov Virtual Machine
 
-This project contains scripts and templates to automatically create the Bitcraze VM with [Packer](https://www.packer.io).
+This project contains scripts and templates to automatically create the Nokov VM with [Packer](https://www.packer.io).
 It's also used for tracking issues and improvements.
 
-The Bitcraze VM contains everything you need for running the Bitcraze projects and doing development for them. It's a great way to quickly get started without having the hassle of installing dependencies and setting up the development environment.
+The Nokov VM contains everything you need for running the Bitcraze projects and doing development for them. It's a great way to quickly get started without having the hassle of installing dependencies and setting up the development environment.
 
 Here is a non-exhaustive list of what's included:
 
@@ -20,7 +20,7 @@ Here is a non-exhaustive list of what's included:
 
 Downloading
 -----------
-The Bitcraze VM can be downloaded via the [Github Release Page](https://github.com/bitcraze/bitcraze-vm/releases)
+The Nokov VM can be downloaded via the [Github Release Page](https://github.com/NOKOV-MOCAP/nokov-vm/releases)
 
 Installing
 ----------
@@ -35,7 +35,7 @@ Using the virtual machine
 -------------------------
 After importing just run the machine. It logs in automatically but use the following credentials if needed:
 ```
-User: bitcraze
+User: nokov
 Pass: crazyflie
 ```
 
@@ -56,24 +56,24 @@ Also just to be sure, install the guest addition pack from inside the VM by typi
 
 For the rest of the performance of your VM, you can try to increase the base memory (Settings/System/Motherboard), the CPU's available (Settings/System/Processor), enable hardware acceleration and select Hyper-V (Settings/System/Acceleration) or increase the video memory with 3D acceleration enabled (Settings/Display/Screen). This requires some adjusting as this could be different per system you are running the VM from.
 
-# How to build the Bitcraze VM image
+# How to build the Nokov VM image
 
 ## Pre-requisites
 
-* This script has only been tested on a Linux machine, therefore it's recommended to use Linux to build the Bitcraze VM
+* This script has only been tested on a Linux machine, therefore it's recommended to use Linux to build the Nokov VM
 * VirtualBox must be installed as well as the VirtualBox Extension Pack
 * Virtual box guest additions
 * [Packer](https://www.packer.io)  (can be installed with `apt install packer`)
 
 ## Local build
 
-1. Run ```createBitcrazeVM.sh```
+1. Run ```createNokovVM.sh```
 2. Wait 40-60 minutes depending on machine and internet connection speed
 
-### What does createBitcrazeVM.sh do?
+### What does createNokovVM.sh do?
 Run the two [Packer](https://www.packer.io) templates
-    * Create the VM and run a preseeded installation (```bitcrazeVM_createVM.json```)
-    * Provision the VM (```bitcrazeVM_provisionVM.json```)
+    * Create the VM and run a preseeded installation (```nokovVM_createVM.json```)
+    * Provision the VM (```nokogVM_provisionVM.json```)
 
 ### Why are there two packer templates?
 
@@ -83,13 +83,13 @@ This saves a lot of time.
 
 ### What do the packer templates do?
 
-#### bitcrazeVM_createVM.json
+#### nokovVM_createVM.json
 
 1. Download an ISO and create a VirtualBox image
 2. Start the so-called "preseeding", which automatically runs the Ubuntu installer
 3. Export VM image to OVA file
 
-#### bitcrazeVM_provisionVM.json
+#### nokovVM_provisionVM.json
 Copy the files specified in the JSON template to the VM and run the `provision.sh` script so setup the image.
 
 ### Help! Something does not work.

@@ -1,4 +1,4 @@
-Welcome to the Bitcraze VM
+Welcome to the Nokov VM
 ==========================
 
 The purpose of this virtual machine is to quickly get started with development
@@ -11,7 +11,7 @@ Bitcraze project, you can look at https://bitcraze.io/start.
 The virtual machine
 -------------------
 
- * The username is: bitcraze
+ * The username is: nokov
  * The password is: crazyflie
  * The virtual machine has 30GB drive and 2 GB of RAM
  * The virtual machine is using Xubuntu 20.04 LTS Core (minimal) install.
@@ -30,12 +30,12 @@ Here is a non-exhaustive list of what's included:
  * SDCC 3.2 for compiling of Crazyradio firmware
 
 For a more detailed description of what is being installed on top of an Xubuntu
-core install, you can look at the provision.sh script in the Bitcraze VM git
-repos: https://github.com/bitcraze/bitcraze-vm/tree/master/provision.sh
+core install, you can look at the provision.sh script in the Nokov VM git
+repos: https://github.com/NOKOV-MOCAP/nokov-vm/blob/master/provision.sh
 
 Projects
 --------
-The following projects have been pre-cloned into the /home/bitcraze/projects 
+The following projects have been pre-cloned into the /home/nokov/projects 
 directory:
  * crazyflie-pc-client
  * crazyflie-firmware
@@ -59,6 +59,6 @@ How to update to the latest versions of the repositories
 Updating to the latest versions of all the repositories can be done
 by using the following command:
 
-/home/bitcraze/bin/update_all_projects.sh
+/home/nokov/bin/update_all_projects.sh
 
 Or using the shortcut on the desktop.

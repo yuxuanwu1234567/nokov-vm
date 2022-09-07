@@ -2,7 +2,7 @@
 #
 # Simple script to update all the repos to the latest version.
 
-for f in /home/bitcraze/projects/*
+for f in /home/nokov/projects/*
 do
 	if [ -d "$f" ]; then
 		echo "Updating $f"
@@ -20,7 +20,7 @@ done
 # python lib and client, with all deps, we make sure to re-install it
 # from the source in git.
 #
-pip3 install --user --force-reinstall -e /home/bitcraze/projects/crazyflie-lib-python
-pip3 install --user --force-reinstall -e /home/bitcraze/projects/crazyflie-clients-python
+pip3 install --user --force-reinstall -e /home/nokov/projects/crazyflie-lib-python
+pip3 install --user --force-reinstall -e /home/nokov/projects/crazyflie-clients-python
 
 read -p "Press any key to exit" -n1 -s
