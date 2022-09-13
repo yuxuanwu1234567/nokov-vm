@@ -78,7 +78,7 @@ sudo -H -u nokov code --install-extension marus25.cortex-debug
 
 # Setup update_all_projects script
 chmod +x ~/update_all_projects.sh
-mv ~/update_all_projects.sh ~/bin/update_all_projects.sh
+#mv ~/update_all_projects.sh ~/bin/update_all_projects.sh
 
 # Set background image
 #DISPLAY=:0 xfconf-query --channel xfce4-desktop --list
@@ -90,6 +90,10 @@ cp ~/Pictures/vm_background.png /usr/share/xfce4/backdrops/xubuntu-wallpaper.png
 
 # Add user to vboxsf group so shares with host can be used
 usermod -a -G vboxsf nokov
+
+# Replace pip source
+sudo -H -u nokov bash -c 'python3 -m pip install --upgrade pip'
+sudo -H -u nokov bash -c 'pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple'
 
 # Set up crazyflie-clients-python to use crazyflie-lib-python from source
 sudo -H -u nokov bash -c 'pip3 install --user -e ~/projects/crazyflie-lib-python'
