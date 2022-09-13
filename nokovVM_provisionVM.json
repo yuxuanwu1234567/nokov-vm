@@ -56,37 +56,37 @@
   ],
   "provisioners": [
     {
-      "destination": "/home/bitcraze/update_all_projects.sh",
+      "destination": "/home/nokov/update_all_projects.sh",
       "source": "{{user `contentDir`}}/update_all_projects.sh",
       "type": "file"
     },
     {
-      "destination": "/home/bitcraze/Desktop",
+      "destination": "/home/nokov/Desktop",
       "source": "{{user `contentDir`}}/desktop/",
       "type": "file"
     },
     {
-      "destination": "/home/bitcraze/Pictures",
+      "destination": "/home/nokov/Pictures",
       "source": "{{user `contentDir`}}/pictures/",
       "type": "file"
     },
     {
-      "destination": "/home/bitcraze/{{user `gccFile`}}",
+      "destination": "/home/nokov/{{user `gccFile`}}",
       "source": "{{user `contentDir`}}/{{user `gccFile`}}",
       "type": "file"
     },
     {
-      "destination": "/home/bitcraze/{{user `eclipseFile`}}",
+      "destination": "/home/nokov/{{user `eclipseFile`}}",
       "source": "{{user `contentDir`}}/{{user `eclipseFile`}}",
       "type": "file"
     },
     {
-      "destination": "/home/bitcraze/{{user `eclipsePrj`}}",
+      "destination": "/home/nokov/{{user `eclipsePrj`}}",
       "source": "{{user `contentDir`}}/{{user `eclipsePrj`}}",
       "type": "file"
     },
     {
-      "destination": "/home/bitcraze/{{user `openocd`}}",
+      "destination": "/home/nokov/{{user `openocd`}}",
       "source": "{{user `contentDir`}}/{{user `openocd`}}",
       "type": "file"
     },
