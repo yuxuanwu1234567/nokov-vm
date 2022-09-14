@@ -69,7 +69,7 @@ git clone https://github.com/bitcraze/crazyflie2-nrf-firmware.git
 git clone https://github.com/bitcraze/lps-node-firmware.git --recursive
 git clone https://github.com/USC-ACTLab/crazyswarm.git --recursive
 cd crazyswarm/ros_ws/src/crazyswarm/externalDependencies/
-git switch master
+git switch main
 cd ~/
 chown nokov:nokov -R projects
 ln -s ~/projects ~/Desktop/projects
