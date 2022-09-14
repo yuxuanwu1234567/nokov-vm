@@ -59,6 +59,6 @@ How to update to the latest versions of the repositories
 Updating to the latest versions of all the repositories can be done
 by using the following command:
 
-/home/nokov/bin/update_all_projects.sh
+/home/nokov/update_all_projects.sh
 
 Or using the shortcut on the desktop.
