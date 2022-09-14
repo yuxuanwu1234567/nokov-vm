@@ -1,8 +1,13 @@
 #!/bin/bash -x
 
 # Replace apt source
-sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+
+# Replace Ros source
+sh -c '. /etc/lsb-release && echo "deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
+apt install curl # if you haven't already installed curl
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
 
 # Add KiCad stable PPA
 sudo add-apt-repository --yes ppa:kicad/kicad-5.1-releases
@@ -13,7 +18,17 @@ apt-get update
 
 # Install packages
 apt-get -y install build-essential git sdcc firefox python3-dev python3-pip qtcreator kicad \
-                   dfu-util openocd gcc-arm-none-eabi gdb-multiarch docker.io || { echo 'apt-get install failed' ; exit 1; }
+                   dfu-util openocd gcc-arm-none-eabi gdb-multiarch docker.io\
+                   ros-noetic-desktop-full python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool|| { echo 'apt-get install failed' ; exit 1; }
+
+# Ros environment setup
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+
+# Ros Dependencies for building packages
+echo "185.199.110.133 raw.githubusercontent.com" >> /etc/hosts
+rosdep init
+rosdep update
 
 # Required for the VSCode embedded debug to work
 ln -s /usr/bin/gdb-multiarch /usr/local/bin/arm-none-eabi-gdb
