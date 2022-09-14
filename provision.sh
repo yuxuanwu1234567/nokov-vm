@@ -30,6 +30,15 @@ echo "185.199.110.133 raw.githubusercontent.com" >> /etc/hosts
 rosdep init
 rosdep update
 
+# catkin workspace
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+git clone https://github.com/NOKOV-MOCAP/mocap_nokov.git
+cd ~/catkin_ws
+catkin_make
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+
 # Required for the VSCode embedded debug to work
 ln -s /usr/bin/gdb-multiarch /usr/local/bin/arm-none-eabi-gdb
 
@@ -68,6 +77,7 @@ git clone https://github.com/bitcraze/crazyflie2-nrf-bootloader.git
 git clone https://github.com/bitcraze/crazyflie2-nrf-firmware.git
 git clone https://github.com/bitcraze/lps-node-firmware.git --recursive
 git clone https://github.com/USC-ACTLab/crazyswarm.git --recursive
+echo "source ~/projects/crazyswarm/ros_ws/devel/setup.bash" >> ~/.bashrc
 cd crazyswarm/ros_ws/src/crazyswarm/externalDependencies/
 git switch main
 cd ~/
