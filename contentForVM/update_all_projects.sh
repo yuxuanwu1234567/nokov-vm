@@ -15,6 +15,13 @@ do
 	fi
 done
 
+cd ~/ros2_ws/src/crazyswarm2
+git pull
+git submodule sync
+git submodule update --init --recursive
+cd ../
+colcon build --symlink-install
+
 #
 # In order to make sure the user has an up-to-date install of the
 # python lib and client, with all deps, we make sure to re-install it
