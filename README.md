@@ -99,3 +99,33 @@ Please take a look at the log files ```packerlog_create.txt``` and ```packerlog_
 
 ## Contribute
 Go to the [contribute page](https://www.bitcraze.io/contribute/) on our website to learn more.
+
+## 常见编译错误汇总
+1.nokov@ubuntu:~/Desktop/projects/nokov-vm$ ./createNokovVM.sh  
+Running packer...  
+OVA file not found. Starting VM creation...  
+virtualbox-iso output will be in this color.  
+1 error(s) occurred:  
+The iso_checksum_type must be specified.  
+Starting VM provisioning...  
+virtualbox-ovf output will be in this color.  
+1 error(s) occurred:  
+Source file 'file://./output-virtualbox-iso/NokovVM.ova' needs to exist at time of config validation!  
+解决方法: 更新packer版本1.6.0以及以上  
+
+2.Build 'virtualbox-iso' errored after 1 millisecond 626 microseconds: Failed creating VirtualBox driver: exec: "VBoxManage": executable file not found in $PATH    
+解决方法: sudo apt-get install virtualbox-guest-additions-iso  
+
+3.==> virtualbox-iso: Error starting VM: VBoxManage error: VBoxManage: error: VT-x is not available (VERR_VMX_NO_VMX)  
+==> virtualbox-iso: VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component ConsoleWrap, interface IConsole  
+解决方法：  
+1）切换使用VMWare虚拟机  
+2）bcdedit /set hypervisorlaunchtype off  
+3）VMWare虚拟机设置->处理器->虚拟化引擎->勾选 虚拟化InterVT-x选项  
+
+4.VMWare安装vmwaretools后仍然无法复制粘贴  
+解决方法:  
+sudo apt-get update  
+sudo apt install open-vm-tools  
+sudo apt install open-vm-tools-desktop  
+reboot  
