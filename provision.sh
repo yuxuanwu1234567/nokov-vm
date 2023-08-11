@@ -55,6 +55,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 sudo apt update
 sudo apt upgrade
 sudo apt install ros-galactic-desktop
+sudo apt install python3-colcon-common-extensions
 
 # crazyswarm2
 sudo apt install libboost-program-options-dev libusb-1.0-0-dev
@@ -64,6 +65,7 @@ cd ~/ros2_ws/src
 git clone https://github.com/IMRCLab/crazyswarm2 --recursive
 git clone --branch ros2 --recursive https://github.com/IMRCLab/motion_capture_tracking.git
 cd ../
+source /opt/ros/galactic/setup.bash
 colcon build --symlink-install
 
 # Required for the VSCode embedded debug to work
