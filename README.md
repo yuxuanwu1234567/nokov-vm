@@ -16,7 +16,7 @@ Here is a non-exhaustive list of what's included:
 * KiCad
 * vscode prepared for compiling/debugging/flashing the Crazyflie firmware
 * SDCC 3.2 for compiling of Crazyradio firmware
-
+* Ros1 & Ros2 & Crazyswarm1/2
 
 Downloading
 -----------
