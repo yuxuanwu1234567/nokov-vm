@@ -50,6 +50,7 @@ directory:
  * crazyswarm
  * crazyswarm2
  * motion_capture_tracking
+ * mocap_nokov
 
 How to run the Crazyflie PC client
 ----------------------------------
