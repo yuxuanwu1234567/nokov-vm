@@ -19,7 +19,7 @@ cd ~/ros2_ws/src/crazyswarm2
 git pull
 git submodule sync
 git submodule update --init --recursive
-cd ../
+cd ~/ros2_ws
 colcon build --symlink-install
 
 #
