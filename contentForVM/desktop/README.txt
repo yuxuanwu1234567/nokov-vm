@@ -28,6 +28,8 @@ Here is a non-exhaustive list of what's included:
  * KiCad
  * vscode prepared for compiling/debugging/flashing the Crazyflie firmware
  * SDCC 3.2 for compiling of Crazyradio firmware
+ * Ros Noetic
+ * Ros2 galactic
 
 For a more detailed description of what is being installed on top of an Xubuntu
 core install, you can look at the provision.sh script in the Nokov VM git
@@ -45,6 +47,9 @@ directory:
  * crazyflie2-nrf-firmware
  * crazyflie2-stm-firmware
  * crazyflie2-stm-bootloader
+ * crazyswarm
+ * crazyswarm2
+ * motion_capture_tracking
 
 How to run the Crazyflie PC client
 ----------------------------------
@@ -62,3 +67,10 @@ by using the following command:
 /home/nokov/update_all_projects.sh
 
 Or using the shortcut on the desktop.
+
+How to Switch the ros version to the ros2
+--------------------------------------------------------
+default is the ros noetic because the source command has been added to the bashrc file,
+by using the following command:
+
+source /opt/ros/galactic/setup.bash
