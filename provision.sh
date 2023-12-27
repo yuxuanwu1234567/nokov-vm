@@ -6,8 +6,14 @@ sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /
 
 # Replace Ros source
 sh -c '. /etc/lsb-release && echo "deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
-apt install curl # if you haven't already installed curl
-curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
+apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+apt update
+apt-get update
+
+apt-get -y install curl # if you haven't already installed curl
+echo "185.199.110.133 raw.githubusercontent.com" >> /etc/hosts
+echo "192.30.255.112  github.com" >> /etc/hosts
+#curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
 
 # Add KiCad stable PPA
 sudo add-apt-repository --yes ppa:kicad/kicad-5.1-releases
@@ -26,7 +32,6 @@ echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
 # Ros Dependencies for building packages
-echo "185.199.110.133 raw.githubusercontent.com" >> /etc/hosts
 rosdep init
 rosdep update
 

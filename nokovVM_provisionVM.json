@@ -24,8 +24,6 @@
           "usbtablet",
           "--rtcuseutc",
           "on",
-          "--audio",
-          "pulse",
           "--audiocodec",
           "ad1980",
           "--usb",
