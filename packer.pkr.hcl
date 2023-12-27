@@ -1,8 +1,8 @@
 packer {
-    required_plugins {
-        virtualbox = {
-          version = "~> 1"
-          source  = "github.com/hashicorp/virtualbox"
-        }
+  required_plugins {
+    vmware = {
+      version = "~> 1"
+      source = "github.com/hashicorp/vmware"
     }
+  }
 }

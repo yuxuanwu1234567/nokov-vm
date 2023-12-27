@@ -2,89 +2,62 @@
   "builders": [
     {
       "boot_wait": "30s",
-      "format": "ova",
-      "import_opts": "importtovdi",
       "shutdown_command": "echo '{{user `password`}}' | sudo -S shutdown -P now",
-      "source_path": "output-virtualbox-iso/{{user `vm-name`}}.ova",
       "ssh_password": "{{user `password`}}",
       "ssh_timeout": "10000s",
       "ssh_username": "{{user `user`}}",
-      "type": "virtualbox-ovf",
-      "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--cpus",
-          "2",
-          "--memory",
-          "2048",
-          "--vram",
-          "16",
-          "--mouse",
-          "usbtablet",
-          "--rtcuseutc",
-          "on",
-          "--audiocodec",
-          "ad1980",
-          "--usb",
-          "on",
-          "--usbxhci",
-          "on",
-          "--nestedpaging",
-          "off",
-          "--graphicscontroller",
-          "vmsvga"
-        ],
-        [
-          "storageattach",
-          "{{.Name}}",
-          "--storagectl",
-          "SATA Controller",
-          "--port",
-          "0",
-          "--nonrotational",
-          "on",
-          "--discard",
-          "on"
-        ]
-      ],
-      "virtualbox_version_file": ".vbox_version",
+      "source_path": "output-vmware-iso/{{user `vm-name`}}.vmx",
+      "type": "vmware-vmx",
+      "vmx_data": {
+        "numvcpus": "2",
+        "memsize": "2048",
+        "scsi0.virtualDev": "lsilogic",
+        "ethernet0.virtualDev": "vmxnet3",
+        "ethernet0.networkName": "VM Network",
+        "ethernet0.wakeOnPcktRcv": "FALSE",
+        "usb.present": "TRUE",
+        "sound.present": "TRUE",
+        "sound.fileName": "-1",
+        "sound.autodetect": "TRUE",
+        "mks.enable3d": "TRUE",
+        "svga.graphicsMemoryKB": "16384"
+      },
       "vm_name": "{{user `vm-name`}}"
     }
   ],
   "provisioners": [
     {
-      "destination": "/home/nokov/update_all_projects.sh",
+      "destination": "/home/{{user `user`}}/update_all_projects.sh",
       "source": "{{user `contentDir`}}/update_all_projects.sh",
       "type": "file"
     },
     {
-      "destination": "/home/nokov/Desktop",
+      "destination": "/home/{{user `user`}}/Desktop",
       "source": "{{user `contentDir`}}/desktop/",
       "type": "file"
     },
     {
-      "destination": "/home/nokov/Pictures",
+      "destination": "/home/{{user `user`}}/Pictures",
       "source": "{{user `contentDir`}}/pictures/",
       "type": "file"
     },
     {
-      "destination": "/home/nokov/{{user `gccFile`}}",
+      "destination": "/home/{{user `user`}}/{{user `gccFile`}}",
       "source": "{{user `contentDir`}}/{{user `gccFile`}}",
       "type": "file"
     },
     {
-      "destination": "/home/nokov/{{user `eclipseFile`}}",
+      "destination": "/home/{{user `user`}}/{{user `eclipseFile`}}",
       "source": "{{user `contentDir`}}/{{user `eclipseFile`}}",
       "type": "file"
     },
     {
-      "destination": "/home/nokov/{{user `eclipsePrj`}}",
+      "destination": "/home/{{user `user`}}/{{user `eclipsePrj`}}",
       "source": "{{user `contentDir`}}/{{user `eclipsePrj`}}",
       "type": "file"
     },
     {
-      "destination": "/home/nokov/{{user `openocd`}}",
+      "destination": "/home/{{user `user`}}/{{user `openocd`}}",
       "source": "{{user `contentDir`}}/{{user `openocd`}}",
       "type": "file"
     },

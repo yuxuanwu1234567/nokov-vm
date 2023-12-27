@@ -8,10 +8,8 @@
       ],
       "boot_wait": "4s",
       "disk_size": "50000",
-      "format": "ova",
-      "guest_additions_mode": "disable",
-      "guest_os_type": "Ubuntu_64",
-      "hard_drive_interface": "sata",
+      "format": "vmx",
+      "guest_os_type": "ubuntu-64",
       "http_directory": "http",
       "iso_checksum": "md5:e5bf713621b43207dead707396da29f6",
       "iso_url": "http://archive.ubuntu.com/ubuntu/dists/focal/main/installer-amd64/current/legacy-images/netboot/mini.iso",
@@ -19,49 +17,27 @@
       "ssh_password": "{{user `password`}}",
       "ssh_timeout": "10000s",
       "ssh_username": "{{user `user`}}",
-      "type": "virtualbox-iso",
-      "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "1024",
-          "--vram",
-          "16",
-          "--mouse",
-          "usbtablet",
-          "--rtcuseutc",
-          "on",
-          "--audiocodec",
-          "ad1980",
-          "--usb",
-          "on",
-          "--usbohci",
-          "on",
-          "--nestedpaging",
-          "off"
-        ],
-        [
-          "storageattach",
-          "{{.Name}}",
-          "--storagectl",
-          "SATA Controller",
-          "--port",
-          "0",
-          "--nonrotational",
-          "on",
-          "--discard",
-          "on"
-        ]
-      ],
-      "vboxmanage_post": [
-        [
-          "modifyhd",
-          "output-virtualbox-iso/{{.Name}}.vdi",
-          "--compact"
-        ]
-      ],
-      "vm_name": "{{user `vm-name`}}"
+      "type": "vmware-iso",
+      "vm_name": "{{user `vm-name`}}",
+      "vmx_data": {
+        "memsize": "1024",
+        "numvcpus": "1",
+        "cpuid.coresPerSocket": "1",
+        "ethernet0.present": "TRUE",
+        "ethernet0.connectionType": "nat",
+        "ethernet0.virtualDev": "e1000",
+        "ethernet0.networkName": "VM Network",
+        "ethernet0.wakeOnPcktRcv": "FALSE",
+        "usb.present": "TRUE",
+        "sound.present": "TRUE",
+        "sound.fileName": "-1",
+        "sound.autodetect": "TRUE",
+        "mks.enable3d": "TRUE",
+        "svga.graphicsMemoryKB": "16384"
+      },
+      "vmx_data_post": {
+        "scsi0:0.writeThrough": "TRUE"
+      }
     }
   ],
   "variables": {
@@ -70,4 +46,3 @@
     "vm-name": "NokovVM"
   }
 }
-
